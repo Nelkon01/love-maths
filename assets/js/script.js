@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame (gameType) {
+    document.getElementById("answer-box").value = "";
     // creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
@@ -103,8 +104,9 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function displaySubtractQuestion(operand1, operand2) {
-    document.getElementById("operand1").innerText = operand1;
-    document.getElementById("operand2").innerText = operand2;
+
+    document.getElementById("operand1").innerText = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById("operand2").innerText = operand1 > operand2 ? operand2 : operand1;
     document.getElementById("operator").innerText = "-";
 }
 function displayMultiplyQuestion(operand1, operand2) {
